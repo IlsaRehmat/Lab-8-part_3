@@ -4,6 +4,10 @@
  * @author Hacker T. Largebrain 
  * @version 1.0
  */
+/*
+ * Question 30
+ * the result should be 6 but for me its returning 0 so its wrong 
+ */
 public class CalcEngine
 {
     // The value in the display.
@@ -19,7 +23,7 @@ public class CalcEngine
     public CalcEngine()
     {
         displayValue = 0;
-        previousOperator = ' ';
+        previousOperator = '+';
         leftOperand = 0;
     }
 
@@ -66,12 +70,7 @@ public class CalcEngine
      */
     public void equals()
     {
-        if(previousOperator == '+') {
-            displayValue = leftOperand + displayValue;
-        }
-        else {
-            displayValue = leftOperand - displayValue;
-        }
+        applyPreviousOperator();
         leftOperand = 0;
     }
 
@@ -81,6 +80,8 @@ public class CalcEngine
     public void clear()
     {
         displayValue = 0;
+        leftOperand = 0;
+        previousOperator = '+';
     }
 
     /**
